@@ -2,6 +2,8 @@ package biblioMVC.model;
 
 import biblioMVC.model.database.*;
 
+import java.util.List;
+
 /**
  * Book Data Access Object (DAO) for Database interactions.
  * Handles CRUD operations for Book objects.
@@ -69,11 +71,11 @@ public class BookDAO {
         
         return databaseOperation.getError();
     }
-
+    
     public String query(Book book)
     {
         if (!this.db.isInitialized()) return "ERR:BookDAO::query(book: " + book + "): Database is not initialized.";
-        if (book.getId() == -1) return "ERR:BookDAO::query(book: " + book + "): Book instance is already initialized.";
+        if (book.getId() != -1) return "ERR:BookDAO::query(book: " + book + "): Book instance is already initialized.";
         if (book.getTitle() == null) return "ERR:BookDAO::query(book: " + book + "): Book instance has a null title.";
         
         final var databaseOperation = this.db.execute(
@@ -91,4 +93,31 @@ public class BookDAO {
         
         return databaseOperation.getError();
     }
+
+public String list(List<Book> buffer) {
+    if (!this.db.isInitialized()) return "ERR:BookDAO::list(buffer: " + buffer + "): Database is not initialized.";
+    if (buffer == null) return "ERR:BookDAO::list(buffer: " + buffer + "): Provided buffer is null.";
+
+    final var databaseOperation = this.db.execute(
+            """
+            SELECT id, title, author, releaseDate FROM books;
+            """
+    );
+
+    if (databaseOperation.getError() != null) {
+        return databaseOperation.getError();
+    }
+
+    try {
+        while (databaseOperation.nextResult()) {
+            final var book = new Book(databaseOperation.getString("title"), databaseOperation.getString("author"), databaseOperation.getDate("releaseDate"));
+            book.setId(databaseOperation.getInt("id"));
+            buffer.add(book);
+        }
+    } catch (Exception e) {
+        return "Não foi possível processar o banco de dados: " + e.getMessage();
+    }
+
+    return null;
+}
 };  

@@ -12,6 +12,7 @@ public class Book {
         this.title  = title;
         this.author = author;
         this.releaseDate = releaseDate;
+        this.id = -1;
     }
     
     public void setTitle(String title)

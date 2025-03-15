@@ -5,10 +5,7 @@ import biblioMVC.model.BookDAO;
 import biblioMVC.model.database.DatabaseContainer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 
 /**
  * Controlador MVP (Model, View, Controller) que há de realizar a conexação entre
@@ -21,14 +18,18 @@ public class BookController {
     
     public BookController()
     {
-        this.db      = new DatabaseContainer("DB_PATH");
+        this.db      = new DatabaseContainer("jdbc:sqlite:biblioteca.db");
         this.bookDAO = new BookDAO(db);
-        
+             
         db.initialize();
     }
     
     public String addBook(String title, String author, String releaseDate)
     {
+        if (title == null || "".equals(title)) return "Não foi fornecido um título!";
+        if (author == null || "".equals(author)) return "Não foi fornecido um autor!";
+        if (releaseDate == null || "".equals(releaseDate)) return "Não foi fornecida uma data!";
+        
         try {
             final var date = new SimpleDateFormat("yyyy-MM-dd").parse(releaseDate);
             final var book  = new Book(title, author, date);
@@ -36,7 +37,7 @@ public class BookController {
             
             return error;
         } catch (ParseException e) {
-            return String.format("ERR:BookController:addBook(title: %s, author: %s, releaseDate: %s): %s", title, author, releaseDate, e.getMessage());
+            return String.format("Formato de data inválido (esperado yyyy-MM-dd): %s", releaseDate);
         }
     }
     
@@ -47,21 +48,20 @@ public class BookController {
                 
         if (error != null) return error;
         
-        if (newTitle != null) book.setTitle(newTitle);
-        if (newAuthor != null) book.setAuthor(newAuthor);
+        if (newTitle != null && !"".equals(newTitle)) book.setTitle(newTitle);
+        if (newAuthor != null && !"".equals(newAuthor)) book.setAuthor(newAuthor);
         
-        if (newReleaseDate != null) {
+        if (newReleaseDate != null && !"".equals(newReleaseDate)) {
             try {
                 final var date = new SimpleDateFormat("yyyy-MM-dd").parse(newReleaseDate);           
                 book.setReleaseDate(date);
             } catch (ParseException e) {
-                return String.format("ERR:BookController:updateBook(title: %s, newTitle: %s, newAuthor: %s, newReleaseDate: %s): %s", title, newTitle, newAuthor, newReleaseDate, e.getMessage());
+                return String.format("Formato de data inválida (yyyy-MM-dd): %s", newReleaseDate);
             }
         }
                 
         return this.bookDAO.update(book);
     }
-    
     public String delBook(String title)
     {
         final var book  = new Book(title, null, null);
@@ -69,5 +69,22 @@ public class BookController {
         
         if (error != null) return error;
         return bookDAO.delete(book);
+    }
+    
+    public String listBooks(ArrayList<String> buffer)
+    {
+        final var books = new ArrayList<Book>();
+        final var error = bookDAO.list(books);
+        final var dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        
+        if (error != null) return error;
+                
+        for (final var book : books) {
+            buffer.add(book.getTitle());
+            buffer.add(book.getAuthor());
+            buffer.add(dateFormatter.format(book.getReleaseDate()));
+        }
+        
+        return null;
     }
 }

@@ -81,7 +81,7 @@ public class DatabaseContainer implements AutoCloseable {
                 
                 return 0;
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return -1;
             }
         }
@@ -93,7 +93,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.next();
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return false;
             }
         }
@@ -105,7 +105,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getInt(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return -1;
             }
         }
@@ -117,7 +117,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getShort(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return -1;
             }
         }
@@ -129,7 +129,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getLong(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return -1;
             }
         }
@@ -141,7 +141,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getDouble(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return Double.NEGATIVE_INFINITY;
             }
         }
@@ -153,7 +153,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getFloat(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return Float.NEGATIVE_INFINITY;
             }
         }
@@ -165,7 +165,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getString(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return null;
             }
         }
@@ -177,7 +177,7 @@ public class DatabaseContainer implements AutoCloseable {
             try {
                 return this.rs.getDate(column);
             } catch (SQLException e) {
-                this.error = e.getMessage();
+                this.error = e.getLocalizedMessage();
                 return null;
             }
         }
@@ -203,13 +203,13 @@ public class DatabaseContainer implements AutoCloseable {
         try {
            this.sqlConn = DriverManager.getConnection(path); 
         } catch (SQLException e) {
-           return "ERR:DatabaseContainer::initialize(): " + e.getMessage();
+           return "ERR:DatabaseContainer::initialize(): " + e.getLocalizedMessage();
         }
                 
         try (var statement = this.sqlConn.createStatement()) {
             statement.execute(sql);
         } catch (SQLException e) {            
-            return "ERR:DatabaseContainer::initialize(): " + e.getMessage();
+            return "ERR:DatabaseContainer::initialize(): " + e.getLocalizedMessage();
         }
         
         this.initialized = true;

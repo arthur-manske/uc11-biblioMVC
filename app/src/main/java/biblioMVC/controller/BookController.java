@@ -16,9 +16,9 @@ public class BookController {
     private final DatabaseContainer db; 
     private final BookDAO           bookDAO;
     
-    public BookController()
+    public BookController(String path)
     {
-        this.db      = new DatabaseContainer("jdbc:sqlite:biblioteca.db");
+        this.db      = new DatabaseContainer("jdbc:sqlite:" + path);
         this.bookDAO = new BookDAO(db);
              
         db.initialize();
@@ -41,14 +41,12 @@ public class BookController {
         }
     }
     
-    public String updateBook(String title, String newTitle, String newAuthor, String newReleaseDate)
+    public String updateBook(String title, String newAuthor, String newReleaseDate)
     {
         final var book  = new Book(title, null, null);
         final var error = this.bookDAO.query(book);
                 
         if (error != null) return error;
-        
-        if (newTitle != null && !"".equals(newTitle)) book.setTitle(newTitle);
         if (newAuthor != null && !"".equals(newAuthor)) book.setAuthor(newAuthor);
         
         if (newReleaseDate != null && !"".equals(newReleaseDate)) {

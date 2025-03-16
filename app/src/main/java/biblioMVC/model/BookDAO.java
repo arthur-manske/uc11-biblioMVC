@@ -61,9 +61,8 @@ public class BookDAO {
         
         final var databaseOperation = this.db.execute(
                 """
-                UPDATE books SET title = ?, author = ?, releaseDate = ? WHERE id = ?;
+                UPDATE books SET author = ?, releaseDate = ? WHERE id = ?;
                 """,
-                book.getTitle(),
                 book.getAuthor(),
                 book.getReleaseDate(),
                 book.getId()

@@ -1,20 +1,30 @@
 package biblioMVC;
 
+import biblioMVC.controller.BookController;
+import biblioMVC.controller.PreferencesController;
 import biblioMVC.view.BookForm;
+import biblioMVC.view.SwingConfig;
+import java.awt.Color;
 
-public class App {
-    public static void main(String[] args) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        
-        new BookForm().setVisible(true);
+public final class App {
+    private final BookForm bookForm;
+    
+    private App(String path)
+    {
+       final var bookController = new BookController(path);
+       final var prefController = new PreferencesController(this.getClass().getName());
+       
+       SwingConfig.setFlatLafTheme(prefController.isDarkModeEnabled(), prefController.getAccentColor());
+       this.bookForm = new BookForm(bookController, prefController);
+    }
+    
+    private void run()
+    {
+        this.bookForm.setVisible(true);
+    }
+    
+    public static void main(String[] args)
+    {    
+        new App("biblioteca.db").run();
     }
 }

@@ -247,7 +247,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="editBookLabel" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="editBookReleaseDateLabel" max="32767" attributes="0"/>
                               <Component id="editBookAuthorNameLabel" min="-2" max="-2" attributes="0"/>
@@ -255,7 +255,7 @@
                               <Component id="editBookReleaseDateField" alignment="0" max="32767" attributes="0"/>
                               <Component id="editBookButton" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="26" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                       <Component id="editBookNameLabel" alignment="1" max="32767" attributes="0"/>
                   </Group>
@@ -277,7 +277,7 @@
                           <Component id="editBookReleaseDateField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="editBookButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="19973" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -392,7 +392,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="addBookAuthorLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addBookTitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -402,7 +402,7 @@
                               <Component id="addBookTitleField" alignment="0" max="32767" attributes="0"/>
                               <Component id="addBookButton" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                       <Component id="addBookLabel" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -426,7 +426,7 @@
                           <Component id="addBookReleaseDateField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="addBookButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="19940" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

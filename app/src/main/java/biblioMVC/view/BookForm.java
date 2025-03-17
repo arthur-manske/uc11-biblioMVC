@@ -35,8 +35,10 @@ public final class BookForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
         switchThemeButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -49,6 +51,30 @@ public final class BookForm extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Biblioteca");
@@ -72,7 +98,7 @@ public final class BookForm extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -149,8 +175,9 @@ public final class BookForm extends javax.swing.JFrame {
             }
         });
 
-        editBookNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        editBookNameLabel.setText("(n/a)");
+        editBookTitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        editBookTitleLabel.setText("Título");
+        editBookTitleLabel.setToolTipText("");
 
         editBookButton.setText("Editar livro");
         editBookButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -161,30 +188,40 @@ public final class BookForm extends javax.swing.JFrame {
             }
         });
 
+        editBookTitleField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBookTitleFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editBookPanelLayout = new javax.swing.GroupLayout(editBookPanel);
         editBookPanel.setLayout(editBookPanelLayout);
         editBookPanelLayout.setHorizontalGroup(
             editBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(editBookLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(editBookPanelLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(editBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(editBookReleaseDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addGroup(editBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editBookReleaseDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editBookAuthorNameLabel)
-                    .addComponent(editBookAuthorField)
-                    .addComponent(editBookReleaseDateField)
-                    .addComponent(editBookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(editBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(editBookLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editBookTitleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editBookReleaseDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editBookAuthorField)
+                        .addComponent(editBookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editBookTitleField)))
                 .addContainerGap(23, Short.MAX_VALUE))
-            .addComponent(editBookNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         editBookPanelLayout.setVerticalGroup(
             editBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editBookPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(editBookLabel)
-                .addGap(0, 0, 0)
-                .addComponent(editBookNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editBookTitleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editBookTitleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editBookAuthorNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editBookAuthorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,9 +229,9 @@ public final class BookForm extends javax.swing.JFrame {
                 .addComponent(editBookReleaseDateLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editBookReleaseDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(editBookButton)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 19932, Short.MAX_VALUE))
         );
 
         tabs.addTab("Atualizar", editBookPanel);
@@ -256,9 +293,9 @@ public final class BookForm extends javax.swing.JFrame {
                     .addComponent(addBookReleaseDateField)
                     .addComponent(addBookAuthorField)
                     .addComponent(addBookTitleField)
-                    .addComponent(addBookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addComponent(addBookLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addBookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addBookLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         addBookPanelLayout.setVerticalGroup(
             addBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,98 +306,20 @@ public final class BookForm extends javax.swing.JFrame {
                 .addComponent(addBookTitleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBookTitleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addBookAuthorLabel)
                 .addGap(1, 1, 1)
+                .addComponent(addBookAuthorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBookAuthorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBookReleaseDateLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBookReleaseDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(addBookButton)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 19934, Short.MAX_VALUE))
         );
 
         tabs.addTab("Adicionar", addBookPanel);
-
-        bookTable1.setForeground(new java.awt.Color(30, 30, 30));
-        bookTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Título", "Autor", "Data de lançamento"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        bookTable1.setFillsViewportHeight(true);
-        bookTable1.setNextFocusableComponent(addBookTitleLabel);
-        bookTable1.setOpaque(false);
-        bookTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        bookTable1.setShowGrid(true);
-        bookTable1.getTableHeader().setReorderingAllowed(false);
-        bookTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bookTable1MouseClicked(evt);
-            }
-        });
-        bookTable1.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                bookTable1CaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                bookTable1InputMethodTextChanged(evt);
-            }
-        });
-        bookTable1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                bookTable1PropertyChange(evt);
-            }
-        });
-        bookTable1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bookTable1KeyPressed(evt);
-            }
-        });
-        jScrollPane2.setViewportView(bookTable1);
-        bookTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         switchThemeButton.setText("Mudar tema");
         switchThemeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -375,24 +334,18 @@ public final class BookForm extends javax.swing.JFrame {
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                        .addGap(6, 6, 6)))
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(libraryManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(switchThemeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(libraryManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(switchThemeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addGap(0, 0, 0)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(libraryManager)
@@ -402,8 +355,7 @@ public final class BookForm extends javax.swing.JFrame {
                         .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 20187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 10115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 10115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10121, 10121, 10121)))
                 .addContainerGap())
         );
 
@@ -448,7 +400,7 @@ public final class BookForm extends javax.swing.JFrame {
     }//GEN-LAST:event_addBookButtonActionPerformed
 
     private void editBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookButtonActionPerformed
-        final var title       = this.editBookNameLabel.getText();        
+        final var title       = this.editBookTitleField.getText();        
         final var author      = this.editBookAuthorField.getText().trim();
         final var releaseDate = this.editBookReleaseDateField.getText().trim();
         final var error       = this.bookController.updateBook(title, author, releaseDate);
@@ -509,37 +461,43 @@ public final class BookForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bookTableKeyPressed
 
     private void bookTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_bookTablePropertyChange
+        if (evt == null || !"tableCellEditor".equals(evt.getPropertyName()) || !this.bookTable.isEditing())
+            return;
+        
+        int row = this.bookTable.getSelectedRow();
+        int col = this.bookTable.getSelectedColumn();
+        
+        if (row < 0 || col < 0) return;
 
+        final var title = (String) this.bookTable.getValueAt(row, 0);
+        final var author = (String) this.bookTable.getValueAt(row, 1);
+        final var releaseDate = (String) this.bookTable.getValueAt(row, 2);
+        
+        if (title == null || title.trim().isEmpty()) return;
+        
+        final var error = this.bookController.updateBook(title.trim(), author.trim(), releaseDate.trim());
+
+        if (error != null) {
+            JOptionPane.showMessageDialog(
+                null, 
+                "Erro ao atualizar livro: " + error, 
+                "Erro", 
+                JOptionPane.ERROR_MESSAGE
+            );
+        } else {
+            JOptionPane.showMessageDialog(null, "Alteração realizada com sucesso", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_bookTablePropertyChange
 
     private void bookTableCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_bookTableCaretPositionChanged
     }//GEN-LAST:event_bookTableCaretPositionChanged
 
     private void bookTableInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_bookTableInputMethodTextChanged
+
     }//GEN-LAST:event_bookTableInputMethodTextChanged
 
     private void bookTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookTableMouseClicked
     }//GEN-LAST:event_bookTableMouseClicked
-
-    private void bookTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookTable1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookTable1MouseClicked
-
-    private void bookTable1CaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_bookTable1CaretPositionChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookTable1CaretPositionChanged
-
-    private void bookTable1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_bookTable1InputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookTable1InputMethodTextChanged
-
-    private void bookTable1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_bookTable1PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookTable1PropertyChange
-
-    private void bookTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bookTable1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookTable1KeyPressed
 
     private void switchThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchThemeButtonActionPerformed
         this.preferencesController.setDarkModeEnabled(!this.preferencesController.isDarkModeEnabled());
@@ -558,6 +516,10 @@ public final class BookForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "As alterações serão aplicadas na próxima vez que iniciar o programa.", "Alteração de tema", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_switchThemeButtonActionPerformed
+
+    private void editBookTitleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookTitleFieldActionPerformed
+        this.editBookAuthorField.requestFocusInWindow();
+    }//GEN-LAST:event_editBookTitleFieldActionPerformed
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private final javax.swing.JTextField addBookAuthorField = new javax.swing.JTextField();
@@ -577,22 +539,7 @@ public final class BookForm extends javax.swing.JFrame {
 
             final var string = (String) this.getValueAt(rowIndex, 0);
             if (string != null) {
-                editBookNameLabel.setText(string);
-            } else {
-                editBookNameLabel.setText("(n/a)");
-            }
-        }
-    };
-    private final javax.swing.JTable bookTable1 = new javax.swing.JTable() {
-        @Override
-        public void changeSelection(int rowIndex, int columnIndex, boolean toggle, boolean extend) {
-            super.changeSelection(rowIndex, columnIndex, toggle, extend);
-
-            final var string = (String) this.getValueAt(rowIndex, 0);
-            if (string != null) {
-                editBookNameLabel.setText(string);
-            } else {
-                editBookNameLabel.setText("(n/a)");
+                editBookTitleField.setText(string);
             }
         }
     };
@@ -600,13 +547,16 @@ public final class BookForm extends javax.swing.JFrame {
     private final javax.swing.JLabel editBookAuthorNameLabel = new javax.swing.JLabel();
     private final javax.swing.JButton editBookButton = new javax.swing.JButton();
     private final javax.swing.JLabel editBookLabel = new javax.swing.JLabel();
-    private final javax.swing.JLabel editBookNameLabel = new javax.swing.JLabel();
     private final javax.swing.JPanel editBookPanel = new javax.swing.JPanel();
     private final javax.swing.JTextField editBookReleaseDateField = new javax.swing.JTextField();
     private final javax.swing.JLabel editBookReleaseDateLabel = new javax.swing.JLabel();
+    private final javax.swing.JTextField editBookTitleField = new javax.swing.JTextField();
+    private final javax.swing.JLabel editBookTitleLabel = new javax.swing.JLabel();
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private final javax.swing.JLabel libraryManager = new javax.swing.JLabel();
     private javax.swing.JButton switchThemeButton;
     private final javax.swing.JTabbedPane tabs = new javax.swing.JTabbedPane();

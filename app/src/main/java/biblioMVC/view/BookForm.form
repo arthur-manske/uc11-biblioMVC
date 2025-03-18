@@ -53,6 +53,99 @@
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu2">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Arquivo"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Abrir"/>
+                <Property name="toolTipText" type="java.lang.String" value="Troca o arquivo de database (Ctrl+O)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jMenuItem3"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jMenuItem4"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Alt+F4"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sair"/>
+                <Property name="toolTipText" type="java.lang.String" value="Fecha o programa (Alt+F4)"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Visualizar"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="switchThemeMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F2"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Trocar tema"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="switchThemeMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="helpMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ajuda"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manual"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -65,6 +158,7 @@
     </Property>
   </Properties>
   <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -89,7 +183,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="background" max="32767" attributes="0"/>
+              <Component id="background" pref="20216" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -116,15 +210,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Component id="jScrollPane1" pref="459" max="32767" attributes="0"/>
-                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="475" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="tabs" max="32767" attributes="0"/>
                       <Component id="libraryManager" max="32767" attributes="0"/>
-                      <Component id="switchThemeButton" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -132,20 +226,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="libraryManager" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="switchThemeButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="libraryManager" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="tabs" min="-2" pref="20187" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="10115" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10121" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane1" min="-2" pref="10115" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -272,19 +361,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="editBookReleaseDateField" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="editBookReleaseDateField" max="32767" attributes="0"/>
                               <Component id="editBookAuthorNameLabel" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="editBookLabel" max="32767" attributes="0"/>
                                   <Component id="editBookTitleLabel" alignment="1" max="32767" attributes="0"/>
                                   <Component id="editBookReleaseDateLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="editBookAuthorField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="editBookButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="editBookTitleField" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="editBookTitleField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="editBookAuthorField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="editBookLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="editBookButton" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -307,7 +396,7 @@
                           <Component id="editBookReleaseDateField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="editBookButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="19932" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="19939" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -340,6 +429,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="editBookAuthorField">
                   <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="O nome corrigido do autor"/>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                       <ComponentRef name="editBookReleaseDateField"/>
                     </Property>
@@ -353,6 +443,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="editBookReleaseDateField">
                   <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="A data de lan&#xe7;amento corrigida, no formato aaaa-mm-dd, por exemplo 2024-01-01."/>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                       <ComponentRef name="editBookButton"/>
                     </Property>
@@ -377,6 +468,7 @@
                 <Component class="javax.swing.JButton" name="editBookButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar livro"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Edita o livro em sele&#xe7;&#xe3;o (Ctrl+w)"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
@@ -392,6 +484,9 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="editBookTitleField">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="O t&#xed;tulo do livro a se editar, muda conforme sua sele&#xe7;&#xe3;o na tabela"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBookTitleFieldActionPerformed"/>
                   </Events>
@@ -430,17 +525,21 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="23" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="addBookAuthorLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="addBookTitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="addBookReleaseDateLabel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addBookReleaseDateField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addBookAuthorField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addBookTitleField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addBookButton" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="addBookLabel" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="addBookTitleLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addBookAuthorLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="addBookTitleField" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="addBookAuthorField" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="addBookReleaseDateField" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="addBookButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="addBookReleaseDateLabel" alignment="0" pref="131" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
@@ -465,7 +564,7 @@
                           <Component id="addBookReleaseDateField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="addBookButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="19934" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="19941" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -506,6 +605,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="addBookTitleField">
                   <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="O t&#xed;tulo do livro a se adicionar"/>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                       <ComponentRef name="addBookAuthorField"/>
                     </Property>
@@ -519,6 +619,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="addBookAuthorField">
                   <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="O autor do livro a se adicionra"/>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                       <ComponentRef name="addBookReleaseDateField"/>
                     </Property>
@@ -532,6 +633,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="addBookReleaseDateField">
                   <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="A data de lan&#xe7;amento do livro a se adicionar no formato aaaa-mm-dd, por exemplo, 2024-01-01"/>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                       <ComponentRef name="addBookButton"/>
                     </Property>
@@ -546,6 +648,7 @@
                 <Component class="javax.swing.JButton" name="addBookButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Adicionar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Adiciona o livro ao banco de dados (Ctrl+w)"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
@@ -564,17 +667,6 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="switchThemeButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Mudar tema"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="switchThemeButtonActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

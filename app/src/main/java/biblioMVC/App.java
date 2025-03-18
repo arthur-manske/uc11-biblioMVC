@@ -9,7 +9,7 @@ import java.awt.Color;
 public final class App {
     private final BookForm bookForm;
     
-    private App(String path)
+    public App(String path)
     {
        final var bookController = new BookController(path);
        final var prefController = new PreferencesController(this.getClass().getName());
@@ -18,7 +18,7 @@ public final class App {
        this.bookForm = new BookForm(bookController, prefController);
     }
     
-    private void run()
+    public void run()
     {
         this.bookForm.setVisible(true);
     }
